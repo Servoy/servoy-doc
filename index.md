@@ -4,10 +4,6 @@ title: Overview
 nav_order: 1
 ---
 ## Welcome to Servoy!
-Servoy is THE low code platform for Software Vendors and business applications
-
-### Title 1
-### Title 2
-#### Title 2.1
+Servoy is THE low code platform for Software Vendors and business applications. This site contains guides to help you on your journey. 
 
 
