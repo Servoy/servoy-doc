@@ -1,4 +1,4 @@
-This guide will illustrate the best practices for migrating from NG Client to [NG Titanium](https://servoy.github.io/servoy-doc/ng-titanium-overview.html). 
+This guide will illustrate the best practices for migrating from NG Client to [NG Titanium](https://servoy.github.io/servoy-doc/ng-titanium-overview.html).
 
 ### Getting Started
 
