@@ -42,7 +42,7 @@ Component packages which are not Ti-compatible may prevent your solution from ru
 
 If this sounds like your situation, then please read the [Titanium Component Development Guide](https://servoy.github.io/servoy-doc/ng-titanium-component-development-guide.html). 
 
-#### Running your solution on Titanium
+##### Running your solution on Titanium
 
 Once you have updated Servoy Developer and your component packages, you should be able to test out your solution on NG Titanium straight away.
 
@@ -50,11 +50,11 @@ Once you have updated Servoy Developer and your component packages, you should b
 
 Configure Servoy Developer to launch Titanium when starting the NG Client. From the menu bar, choose `Window > Preferences > Servoy` and enable the check box property `Start NG Client should launch Titanium`. After this, whenever you launch the NG Client, you will be running Titanium.
 
-#### Key Differences between NG and Titanium
+##### Key Differences between NG and Titanium
 
 Foobar
 
-#### Table View / List View forms
+##### Table View / List View forms
 
 Foobar
 
@@ -67,6 +67,8 @@ With 2021.03 release we added a special Servoy theme for NGClient2, the best way
 
 ### Components
 
-
+Foobar
 
 ### Deploying Titanium
+
+Foobar
