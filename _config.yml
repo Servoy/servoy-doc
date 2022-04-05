@@ -4,3 +4,5 @@ description: Root for all Servoy documentation
 color_scheme: servoy
 search_enabled: false
 toc: true
+logo: https://www.servoy.com/wp-content/themes/servoy/images/logo-servoy.png
+ga_tracking: UA-299123-7
