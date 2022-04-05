@@ -1,3 +1,8 @@
+---
+layout: default
+title: Migrating to NG Titanium
+nav_order: 1
+---
 
 ### **AngularJS to Angular.io What does it mean?**
 
