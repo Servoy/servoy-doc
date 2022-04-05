@@ -1,6 +1,6 @@
 $body-background-color: $white;
 $sidebar-color: #FFEED9;
-$border-color: $grey-dk-200;
+$border-color: $grey-lt-300;
 
 $body-text-color: #333333;
 $body-heading-color: #444444;
@@ -19,4 +19,8 @@ $feedback-color: darken($sidebar-color, 3%);
 .nav-list-link
 {
 	color: #555555;
+}
+.code
+{
+	font-weight: 600;
 }
