@@ -19,6 +19,7 @@ The NG Titanium client is the latest evolution in Servoy's app deployment techno
 ### Getting Started
 
 **Update Servoy Developer**
+
 It is recommended to [download](https://servoy.com/download) and install the latest stable version of Servoy Developer. Use `Version 2022.3.x` at a minimum.
 
 Be sure to commit any outstanding changes or back up your workspace. If you are using source control, then it is a good idea to move to a new branch in your repository as you work through the changes.
@@ -32,10 +33,7 @@ How do I know You will likely be updating from a semantic version to a year-base
 
 For example, updating grid components:  `NG-Grids 2.9.1`  -->  `NG-Grids 2022.3.1`
 
-```
 Component packages which are not Ti-compatible may cause problems rendering. By now, most component packages shipped by Servoy have been updated to include Titanium sources. However, certain packages may not have been migrated, or you have received a custom package from Servoy's services department.
-{: .alert .alert-info}
-```
 
 
 
