@@ -1,9 +1,3 @@
----
-layout: default
-title: NG Titanium Overview
-nav_order: 1
----
-
 ### **AngularJS to Angular.io What does it mean?**
 
 With 2022 approaching, we just wanted to update you on the AngularJS sundown and what it means for you.
