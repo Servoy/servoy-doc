@@ -1,12 +1,22 @@
-### **AngularJS to Angular.io What does it mean?**
+---
+layout: default
+title: NG Client Roadmap
+has_children: false
+nav_order: 2
+parent: Migrating to NG Titanium
+---
 
-With 2022 approaching, we just wanted to update you on the AngularJS sundown and what it means for you.
+Sorry work in progress. This page needs to be rewritten...
+
+------
+
+### **AngularJS to Angular.io What does it mean?**
 
 Servoy's **NG Client** suite is a deployment technology which delivers your applications to any browser, any desktop, iOS and Android from a single codebase and toolset. The NG Client front-end is built upon **AngularJS**, a powerful framework to enhance HTML5. 
 
 In mid-2018, the AngularJS community [announced](https://docs.angularjs.org/misc/version-support-status) that it would enter a long-term-support (LTS) period, expiring **December 31, 2021**. AngularJS had quickly been succeeded by **Angular.io** (Angular), a newer, more powerful framework, loosely based on the original AngularJS.
 
-### **Servoy’s NG2 Strategy**
+### **Servoy’s Titanium Strategy**
 
 Prior to the AngularJS EOS announcement, Servoy had been researching and developing the successor to the NG Client for quite some time.
 
@@ -38,6 +48,4 @@ First of all, your NG Client users will experience no change in January and ther
 
 If your application is subject to 3rd-party security audits, then you may be concerned with compliance. It is possible that such an audit could flag AngularJS-based applications. Fortunately, the XLTS distribution is vendor-supported and you can have confidence that your application will pass security and compliance audits.
 
-###  
-
-All forthcoming releases of Servoy will be compliant. However, If you are concerned with compliance early in 2022, then please upgrade to the latest Servoy [**v2021.3.x LTS**](https://build.servoy.com/latest/servoy_lts_latest/) build. If you have additional questions about this topic, or feel you need assistance, please contact [info@servoy.com](mailto:info@servoy.com) or call us at +1 866 489 5147. 
+All forthcoming releases of Servoy will be compliant. However, If you are concerned with compliance in 2022, then please upgrade to the latest Servoy [**v2021.3.x LTS**](https://build.servoy.com/latest/servoy_lts_latest/) build. If you have additional questions about this topic, or feel you need assistance, please contact [info@servoy.com](mailto:info@servoy.com) or call us at +1 866 489 5147. 

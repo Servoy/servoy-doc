@@ -1,7 +1,9 @@
 ---
 layout: default
 title: Titanium Component Development Guide
-nav_order: 2
+has_children: false
+nav_order: 1
+parent: Migrating to NG Titanium
 toc: true
 ---
 ### Titanium Component Development Guide
