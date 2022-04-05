@@ -3,3 +3,4 @@ title: Servoy Guides
 description: Root for all Servoy documentation
 color_scheme: servoy
 search_enabled: false
+toc: true
