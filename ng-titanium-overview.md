@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Migrating to NG Titanium
+title: NG Titanium Overview
 nav_order: 1
 ---
 
