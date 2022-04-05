@@ -2,6 +2,7 @@
 layout: default
 title: Migrating to NG Titanium
 nav_order: 1
+toc: true
 ---
 
 This guide will illustrate the steps and best practices for migrating from NG Client to NG Titanium.
