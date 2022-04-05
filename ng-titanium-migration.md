@@ -20,20 +20,26 @@ The NG Titanium client is the latest evolution in Servoy's app deployment techno
 
 **Update Servoy Developer**
 
-It is recommended to [download](https://servoy.com/download) and install the latest stable version of Servoy Developer. Use `Version 2022.3.x` at a minimum.
+It is recommended to [download](https://servoy.com/download) and install the latest stable version of Servoy Developer. Use version `2022.3.x` at a minimum.
 
 Be sure to commit any outstanding changes or back up your workspace. If you are using source control, then it is a good idea to move to a new branch in your repository as you work through the changes.
 
 **Update Component Packages**
-Your solution must use Titanium-compatible component packages in order to run the NG Titanium client. You will need to update each package to ensure that they are Ti-compatible.
+
+Your solution must use Titanium-compatible component packages in order to run the NG Titanium client. You will need to update each package to ensure compatibility.
 
 In Servoy Developer, open the Servoy Package Manager (SPM) and review the Components and Services that are in use. 
 
-How do I know You will likely be updating from a semantic version to a year-based version. 
+**How do I know if a component package is compatible ?**
 
-For example, updating grid components:  `NG-Grids 2.9.1`  -->  `NG-Grids 2022.3.1`
+You will likely be updating from a semantic version to a year-based version. Be sure your package is minimum `2022.3.x`
+For example, updating grid components could look like this:  `NG-Grids 2.9.1`  -->  `NG-Grids 2022.3.1`
 
-Component packages which are not Ti-compatible may cause problems rendering. By now, most component packages shipped by Servoy have been updated to include Titanium sources. However, certain packages may not have been migrated, or you have received a custom package from Servoy's services department.
+**What to do if a package is not compatible ?**
+
+Component packages which are not Ti-compatible may prevent your solution from running in NG Titanium. By now, most supported packages shipped by Servoy have been updated to include Titanium sources and the remaining are planned.  However, it's possible that your application references **custom/3rd-party packages** which are not Ti-compatible. In this case, you will need to migrate these packages, a task which may not be trivial. 
+
+If this sounds like your situation, then please read the [Titanium Component Development Guide](https://servoy.github.io/servoy-doc/ng-titanium-component-development-guide.html). 
 
 
 
