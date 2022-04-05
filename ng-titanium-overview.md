@@ -1,13 +1,3 @@
----
-title: NG Titanium Overview
-layout: default
-has_children: false
-nav_order: 1
----
-
-### NG Titanium Overview
-
-Servoy's NG Titanium client is the latest from two decade's evolution in app deployment technology. With this offering, Servoy's flagship client tech, the NG Client, gets a brand new engine. The underlying stack is completely modernized, moving from AngularJS to Angular.
 
 ### **AngularJS to Angular.io What does it mean?**
 
