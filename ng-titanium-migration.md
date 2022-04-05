@@ -6,9 +6,8 @@ toc: true
 ---
 
 This guide will illustrate the steps and best practices for migrating from NG Client to NG Titanium.
-
-[TOC]
-
+* TOC
+{:toc}
 ------
 
 
