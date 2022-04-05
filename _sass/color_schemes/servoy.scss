@@ -1,17 +1,17 @@
 $body-background-color: $white;
 $sidebar-color: #FFEED9;
-$border-color: $grey-lt-300;
+$border-color: #aaaaaa;
 
 $body-text-color: #333333;
 $body-heading-color: #444444;
-$nav-child-link-color: #ed7823;
+$nav-child-link-color: #555555;
 $search-result-preview-color: $grey-dk-000;
 
 $link-color: #dc6a16;
 $btn-primary-color: $blue-200;
 $base-button-color: $grey-dk-250;
 
-$code-background-color: #FFEED9;
+$code-background-color: $grey-lt-100;
 $search-background-color: $grey-dk-250;
 $table-background-color: $grey-dk-250;
 $feedback-color: darken($sidebar-color, 3%);
@@ -23,4 +23,6 @@ $feedback-color: darken($sidebar-color, 3%);
 .code
 {
 	font-weight: 600;
+	padding-left: 0.3em;
+	padding-right: 0.3em;
 }
