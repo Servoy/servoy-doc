@@ -2,7 +2,7 @@
 layout: default
 title: Ti Migration Utilities
 has_children: false
-nav_order: 2
+nav_order: 1
 parent: Migrating to NG Titanium
 ---
 
