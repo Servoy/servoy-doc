@@ -22,38 +22,50 @@ The script will modify the form, so any existing reference will stay the same i.
 
 ##### Getting Started
 
-The script can be found here https://github.com/Servoy/ti-migration, you can clone the repository or download the code. Then import the **svyTiMigration** project into your workspace and add the solution that contains the forms to be converted as a module, then run the **svyTiMigration** solution.
+The script can be found here https://github.com/Servoy/ti-migration, you can clone the repository or download the code. Then import the **svyTiMigration** project into your workspace and add it as a module to the solution that contains the forms to be converted, then run the main solution.
 
-[TODO: Add screenshot of the Solution Explorer showing the main solution and the module]
+![](/images/ti-migration-utils-solution-explorer.png)
 
-[TODO: Add screenshot of the main form of svyTiMigration solution]
+The **svyTiMigration** has one form that can be used as a helper, it needs to be launched from the *Command Console* (menu *Window > Show View*) by typing:
 
-[TODO: The following instructions assume that there will be a way to select the form to convert, a button to do the conversion, and way to show it after converted]
+```javascript
+forms.svyTiMigration$Main.controller.show()
+```
 
-Select the form to be converted by typing the name, it will autocomplete, then click the *Convert* button, after it's finished the resulting form will be displayed in the tab panel below.
+![](/images/ti-migration-utils-helper-form.png)
+
+Select the form to be converted by typing the name, it will autocomplete, then click the *Convert Form* button, after it's finished the resulting form will be displayed in two tab panels below, the converted form and the OLD copy.
+
+The same conversion can be done using the *Command Console* alone, without showing the `svyTiMigration$Main` form, by typing:
+
+```javascript
+scopes.svyTiMigration.convertTableFormToGrid(formName)
+```
+
+It will open the converted form in the Developer after finished, there is an optional parameter that allows converting List View forms as well and treat them as a Table View form.
+
+All the result for the conversion is printed in the *Console*, make sure to check for messages related to unsupported features or things that need to be handled manually.
 
 ##### Special Cases and Limitations
 
-- Form elements without name cannot be removed, they will be created as columns but need to be removed by hand [TODO: Implement dummy naming to see if it's possible to remove these elements automatically]
+- As form elements without name cannot be removed the script will give set a dummy name just to be able to remove them, if there is any issue the console will output the element properties to help you identify it in the OLD copy.
 - The column header will be calculated using one the following methods:
   - Label with the `labelFor` property pointing to the field being converted
   - `titleText` property on the field being converted
   - If none of the above can be used then the `dataprovider` will be used as the header
 - Labels with the `labelFor` property will also be removed after converting the field they are pointing to even if the label is not in the form body
-- Labels with the `imageMedia` property set need to be handled manually, normally via CSS/LESS and using the `styleClass` property in the grid column [TODO Add example below]
+- Labels with the `imageMedia` property set need to be handled manually, normally via CSS/LESS and using the `styleClass` property in the grid column ( See example below)
 - The name of the field being converted will be used as the column id in the grid
   - If no name was set then the `dataprovider` will be used
-  - If the field doesn't have neither a name nor a dataprovider then the column won't have an id
-- Tooltips as plain text are not supported in the Data Grid component so need to be handled manually, normally by creating a form variable or a calculation and use that as the `tooltipDataprovider` [TODO: Can this be automated by creating a form variable?]
-- Element events are handled using Data Grid events checking the column id, if it was not set then it needs to be handled manually. Also, global/scopes methods are called without using the proper scope so they need to be handled manually [TODO: Can this be fixed by checking the event handler definition?]
+  - If the field doesn't have neither a name nor a dataprovider then the column will have an auto-generated id (the id is important for the event handlers, see below)
+- Element events are handled using Data Grid events checking the column id, if it was auto-generated then it needs to be handled manually. Also, if the event handler is an Entity method it needs to be handled manually because it will be used as if it's a Form method
+- Tooltips as plain text are not supported in the Data Grid component, the script will create a form variable using the column id and use the tooltip text as the variable value, the new variable will be used as the tooltip dataprovider for the grid column
 
 ##### Tweaking Examples
 
 The list below is just a short list of some of the possible tweaks needed in order to have a converted form that is as close as possible to the original one
 
 ###### Labels with `imageMedia` property
-
-[TODO Add screenshot of label with imageMedia]
 
 Example of a column showing an icon for editing a record (button name "*btnEdit*")
 
@@ -68,11 +80,11 @@ Example of a column showing an icon for editing a record (button name "*btnEdit*
 
 - After the form is converted find the column that should show the edit icon and set the `styeClass` property to "*grid-edit-icon*"
 
-If this is a recurring change then the script could be modified to check the button name and if it's "*btnEdit*" then add the "*grid-edit-icon*" during the conversion, just add any custom logic to the method `scopes.ti_utils.getCustomImageMediaStyleClass`
+If this is a recurring change then the script could be modified to check the button name and if it's "*btnEdit*" then add the "*grid-edit-icon*" during the conversion, just add any custom logic to the method `scopes.ti_utils.getCustomColumnStyleClass`
 
 ```javascript
-function getCustomImageMediaStyleClass(componentName, imageMediaName) {
-	if (componentName == 'btnEdit') {
+function getCustomColumnStyleClass(component) {
+	if (component.name == 'btnEdit') {
 		return 'grid-edit-icon';
 	}
 }
@@ -96,4 +108,5 @@ function onCellClick(foundsetindex, columnindex, record, event) {
 }
 ```
 
-There will be an if statement for every column, including those without id, so make sure to manually edit the `id` property of every column and replace `'null'` with the values used
+There will be an if statement for every column, including those without id, so make sure to manually edit the `id` property of every column and replace all the `'null'` strings with the ids used
+
