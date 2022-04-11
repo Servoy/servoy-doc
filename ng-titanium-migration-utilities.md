@@ -32,9 +32,9 @@ The **svyTiMigration** has one form that can be used as a helper, it needs to be
 forms.svyTiMigration$Main.controller.show()
 ```
 
-![](/images/ti-migration-utils-helper-form.png)
-
 Select the form to be converted by typing the name, it will autocomplete, then click the *Convert Form* button, after it's finished the resulting form will be displayed in two tab panels below, the converted form and the OLD copy.
+
+![](/images/ti-migration-utils-helper-form.png)
 
 The same conversion can be done using the *Command Console* alone, without showing the `svyTiMigration$Main` form, by typing:
 
@@ -90,23 +90,20 @@ function getCustomColumnStyleClass(component) {
 }
 ```
 
-###### Event handler for column without `id`
+###### Event handler for column with auto-generated id
 
-If it was not possible to set the the id of the column then any event handler will look like this:
+If the id of the column results in an auto-generated value then any event handler will look like this:
 
 ```javascript
 function onCellClick(foundsetindex, columnindex, record, event) {
 	/** @type {CustomType<aggrid-groupingtable.column>} */
 	var col = elements[event.getElementName()].getColumn(columnindex);
 
-	if (col == 'null') {
+	if (col == 'c1649707517388') {
         // Call to some method
-    }
-	if (col == 'null') {
-        // Call to some other method
     }
 }
 ```
 
-There will be an if statement for every column, including those without id, so make sure to manually edit the `id` property of every column and replace all the `'null'` strings with the ids used
+If you would like to use a more descriptive id then make sure to edit both the column `id` property and the event handler code.
 
