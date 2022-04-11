@@ -56,7 +56,9 @@ Foobar
 
 ##### Table View / List View forms
 
-Foobar
+The NG Titanium client doesn’t support these type of forms they have to be converted to Record View forms and use either a Grid component (Data Grid, Power Grid) or a Table component (servoy-extra package). For List View forms is probably necessary to use a listform component depending on the form's UI
+
+There is a conversion script developed by Servoy that might help converting Table View forms using a Data Grid component, it's not an automatic process and could require some tweaking and verification of the result. It can be found in the [Ti Migration Utilities](https://servoy.github.io/servoy-doc/ng-titanium-migration-utilities.html) page
 
 ### Solution Styling
 
