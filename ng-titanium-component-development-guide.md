@@ -8,9 +8,9 @@ toc: true
 ---
 ### Titanium Component Development Guide
 
-> ```
-> This Guide is under construction. Please come back in a few days
-> ```
+```
+This Guide is under construction. Please come back in a few days
+```
 
 
 
