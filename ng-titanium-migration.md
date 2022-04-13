@@ -77,9 +77,9 @@ It's important to be able to modify CSS/LESS code to adapt to Titanium component
 5. If you are using a theme, then you will need to change the import statement to include a Titanium-compatible theme.
    `@import 'custom_servoy_theme_properties_ng2.less';` More on this in the [next section](#using-a-titanium-theme).
 
-```
-NOTE: If you are creating a solution from scratch, then the "_ng2" stylesheet will be automatically generated and it will contain the correct import statement for the Titanium theme.
-```
+> ```
+> NOTE: If you are creating a solution from scratch, then the "_ng2" stylesheet will be automatically generated and it will contain the correct import statement for the Titanium theme.
+> ```
 
 
 
@@ -94,9 +94,9 @@ If your solution is already using the [SvyThemeRoller](https://github.com/Servoy
 3. Be sure to change the `Servoy Theme Version` to a `2022.3.x_ng2`.
 4. Be sure to add the `@import` statement for this theme to your solution's Ti-compatible stylsheet as described in the [previous section](#creating-a-titanium-style)
 
-```
-NOTE: If you are creating a solution from scratch, then the Titanium theme will be automatically generated. The theme version will be correct and the reference will be imported into the solution's stylesheet.
-```
+> ```
+> NOTE: If you are creating a solution from scratch, then the Titanium theme will be automatically generated. The theme version will be correct and the reference will be imported into the solution's stylesheet.
+> ```
 
 
 
@@ -122,9 +122,9 @@ Classic List-View forms will not render correctly in the Titanium client. It is 
 6. Refactor element references to go through the form component. For example, `elements.my_text_box` becomes `elements.my_form_component.my_text_box`
 7. Reconnect FormComponent element event bindings to container form logic.
 
-```
-NOTE: This process is entirely manual. Servoy is evaluating the possibility of a conversion utility for Classic ListViewForms. This page will be updated accordingly.
-```
+> ```
+> NOTE: This process is entirely manual. Servoy is evaluating the possibility of a conversion utility for Classic ListViewForms. This page will be updated accordingly.
+> ```
 
 
 
