@@ -128,7 +128,32 @@ NOTE: This process is entirely manual. Servoy is evaluating the possibility of a
 
 
 
+### Titanium-Specific Logic
+
+It's possible to evaluate if the current runtime is NG Titanium or NG Classic. Simply check the "NG2" flag in client properties.
+
+For example:
+
+```javascript
+// Show the converted form when running Ti-Client
+if(application.getClientProperty("NG2")){
+    forms.my_form_titanium.controller.show();
+    
+// fallback is classic form
+} else {
+    forms.my_form_classic.controller.show();
+}
+```
+
+
+
 ### Components
+
+##### FullCalendar
+
+Foobar
+
+##### SvyChartJS
 
 Foobar
 
@@ -136,4 +161,3 @@ Foobar
 
 Foobar
 
-TODO: runtime checking isTitanium
