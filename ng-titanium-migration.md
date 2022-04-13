@@ -50,22 +50,57 @@ Once you have updated Servoy Developer and your component packages, you should b
 
 Configure Servoy Developer to launch Titanium when starting the NG Client. From the menu bar, choose `Window > Preferences > Servoy` and enable the check box property `Start NG Client should launch Titanium`. After this, whenever you launch the NG Client, you will be running Titanium.
 
-##### Key Differences between NG and Titanium
+**Comparing NG Classic with Titanium**
 
-Foobar
+It is possible to compare how your solution appears in Titanium vs NG Classic. To compare the results,
 
-##### Table View / List View forms
+1. Copy the URL from your Titanium instance. 
+2. Open a new browser tab or window, then paste the URL in the address bar.
+3. Adjust the URL to match the NG Classic syntax, i.e. [http://localhost:8183/solution**s**/my-solution-name](http://localhost:8183/solutions/my-solution-name) 
+   (Note: the "s" in "solutions" with ensure that NG Classic is launched)
+4. Append the `nodebug` option to the url query string. This will ensure that both clients can run simultaneously.
+   Note: while the no-debug option allows multiple clients, the client is not updated when the solution is changed.
+
+### Solution Styling
+
+Styling and theming can be a bit different in Titanium compared to NG Classic. In some cases, the underlying markup of components has changed quite a bit. Therefore, some CSS selectors will not match. As a result, you will have to revisit your CSS/LESS files to ensure that your solution looks the same from Classic to Titanium.
+
+##### Creating a Titanium Style
+
+It's important to be able to modify CSS/LESS code to adapt to Titanium components without disturbing your NG Classic solution. To facilitate this, Servoy can dynamically switch between your NG Classic and a new, separate Titanium-specific stylesheet. We recommend this approach:
+
+1. Create a copy of your solution's main LESS file in the solution's media folder.
+2. The new file should be named the same, plus a `"_ng2.less"` suffix.
+   For example: `my_solution.less` would be named `my_solution_ng2.less`
+3. When you launch the Titanium client, the solution stylesheet will be substituted with the "_ng2" variant .
+4. Continue to modify your "_ng2" stylesheet as needed to address style differences between components.
+5. If you are using a theme, then you will need to change the import statement to include a Titanium-compatible theme.
+   `@import 'custom_servoy_theme_properties_ng2.less';` More on this in the [next section](#using-a-titanium-theme).
+
+NOTE: If you are creating a solution from scratch, then the "_ng2" stylesheet will be automatically generated and it will contain the correct import statement for the Titanium theme.
+
+
+
+##### Using a Titanium Theme
+
+Another way to simplify the process of styling for Titanium is by using themes.
+
+If your solution is already using the [SvyThemeRoller](https://github.com/Servoy/svyThemeRoller/wiki) project, then you will be able to rely on a Titanium-compatible version of the theme to manage the changes to components. This can be quite handy, as you don't need to handle everything in the LESS file. Follow these steps to start using a Titanium theme in your solution.
+
+1. If you are using a theme, you will have a file in your media folder called `custom_servoy_theme_properties.less`. Create a copy of this file.
+2. The new file should be named the same, plus a `"_ng2.less"` suffix: `custom_servoy_theme_properties_ng2.less`
+3. Be sure to change the `Servoy Theme Version` to a `2022.3.x_ng2`.
+4. Be sure to add the @import statement for this theme to your solution's Ti-compatible stylsheet as described in the [previous section](#creating-a-titanium-style)
+
+NOTE: If you are creating a solution from scratch, then the Titanium theme will be automatically generated. The theme version will be correct and the reference will be imported into the solution's stylesheet.
+
+
+
+### Table View / List View forms
 
 The NG Titanium client doesn’t support these type of forms they have to be converted to Record View forms and use either a Grid component (Data Grid, Power Grid) or a Table component (servoy-extra package). For List View forms is probably necessary to use a listform component depending on the form's UI
 
 There is a conversion script developed by Servoy that might help converting Table View forms using a Data Grid component, it's not an automatic process and could require some tweaking and verification of the result. It can be found in the [Ti Migration Utilities](https://servoy.github.io/servoy-doc/ng-titanium-migration-utilities.html) page
-
-### Solution Styling
-
-Styling and theming can be a bit different in Titanium compared to classic NG. In some cases, the underlying markup has changed quite a bit, therefore some CSS selectors will not match.
-
-
-With 2021.03 release we added a special Servoy theme for NGClient2, the best way to start using this for testing NGClient2 but not disrupting also NGClient1 is to make a copy of your solution stylesheet, if you stylesheet is named "mysolution.less", make a copy and name that copy "mysolution_ng2.less". If you startup a NGClient2 then when serving out the stylesheet, Servoy will check if there is a "ng2" variant of the given solution stylesheets name. In that "mysolution_ng2.less" stylesheet you can then point to another copy: @import 'custom_servoy_theme_properties_ng2.less'; you can make, and that properties less file then points to the new "2021.3.0_ng2" Servoy theme file. This way if you start the same solution in NG1 you will just be served out the normal less/css file including our ng1 servoy stylesheet through 'custom_servoy_theme_properties.less' and starting in in NG2 we will serve out another set of stylesheets and a different Servoy theme file. After this you can then start tweaking the NG2 look in the "ng2" solution stylesheet.
 
 ### Components
 
