@@ -8,7 +8,11 @@ toc: true
 ---
 ### Titanium Component Development Guide
 
-Sorry, work in progress...
+> ```
+> This Guide is under construction. Please come back in a few days
+> ```
+
+
 
 ------
 
