@@ -15,7 +15,7 @@ This guide will illustrate the steps and best practices for migrating from NG Cl
 
 ### Overview
 
-The NG Titanium client is the latest evolution in Servoy's app deployment technology. With this offering, the NG Client gets a brand new engine, allowing Servoy applications to stay up-to-date without having to rewrite or undergo a major refactor. This guide is intended for developers that have NG Client applications that they'd like to migrate to NG Titanium.
+The NG Titanium client is the latest evolution in Servoy's app deployment technology. With this offering, the NG Client gets a brand new engine, allowing Servoy applications to stay up-to-date without having to rewrite or undergo a major refactor. This guide is intended for developers that have **NG Classic** applications that they'd like to migrate to **NG Titanium**.
 
 ### Getting Started
 
@@ -77,7 +77,9 @@ It's important to be able to modify CSS/LESS code to adapt to Titanium component
 5. If you are using a theme, then you will need to change the import statement to include a Titanium-compatible theme.
    `@import 'custom_servoy_theme_properties_ng2.less';` More on this in the [next section](#using-a-titanium-theme).
 
+```
 NOTE: If you are creating a solution from scratch, then the "_ng2" stylesheet will be automatically generated and it will contain the correct import statement for the Titanium theme.
+```
 
 
 
@@ -90,17 +92,41 @@ If your solution is already using the [SvyThemeRoller](https://github.com/Servoy
 1. If you are using a theme, you will have a file in your media folder called `custom_servoy_theme_properties.less`. Create a copy of this file.
 2. The new file should be named the same, plus a `"_ng2.less"` suffix: `custom_servoy_theme_properties_ng2.less`
 3. Be sure to change the `Servoy Theme Version` to a `2022.3.x_ng2`.
-4. Be sure to add the @import statement for this theme to your solution's Ti-compatible stylsheet as described in the [previous section](#creating-a-titanium-style)
+4. Be sure to add the `@import` statement for this theme to your solution's Ti-compatible stylsheet as described in the [previous section](#creating-a-titanium-style)
 
+```
 NOTE: If you are creating a solution from scratch, then the Titanium theme will be automatically generated. The theme version will be correct and the reference will be imported into the solution's stylesheet.
+```
 
 
 
 ### Table View / List View forms
 
-The NG Titanium client doesn’t support these type of forms they have to be converted to Record View forms and use either a Grid component (Data Grid, Power Grid) or a Table component (servoy-extra package). For List View forms is probably necessary to use a listform component depending on the form's UI
+NG Classic solutions which have been grandfathered in from older versions of Servoy may have legacy **List View** and **Table View** forms. While these forms were deprecated in NG Classic, they are now removed in NG Titanium.
 
-There is a conversion script developed by Servoy that might help converting Table View forms using a Data Grid component, it's not an automatic process and could require some tweaking and verification of the result. It can be found in the [Ti Migration Utilities](https://servoy.github.io/servoy-doc/ng-titanium-migration-utilities.html) page
+##### Table View Forms
+
+Classic Table-View forms will not render correctly in the Titanium client. They should be converted to forms containing a NG Grid component. This can be done by renaming the classic form and manually creating the new form with the same name.
+
+In some cases this can be partially automated. To facilitate this, Servoy has developed a utility project. More info can be found in the [Ti Migration Utilities](https://servoy.github.io/servoy-doc/ng-titanium-migration-utilities.html) page.
+
+##### List View Forms
+
+Classic List-View forms will not render correctly in the Titanium client. It is best to use a **FormComponent** inside a List Container.
+
+1. Create a new [FormComponent](https://wiki.servoy.com/display/DOCS/Form+Component), adding the same elements as in the classic form. 
+2. Create a new form (which will be your container form) and add your FormComponent via a **ListFormComponentContainer**.
+3. Set the list container's `pageLayout` property to `listview`.
+4. You can optionally set infinite scrolling by adding the styleClass `svy-listformcomponent-scroll`.
+5. To preserve business logic, copy content from the classic form's .js to the new container form.
+6. Refactor element references to go through the form component. For example, `elements.my_text_box` becomes `elements.my_form_component.my_text_box`
+7. Reconnect FormComponent element event bindings to container form logic.
+
+```
+NOTE: This process is entirely manual. Servoy is evaluating the possibility of a conversion utility for Classic ListViewForms. This page will be updated accordingly.
+```
+
+
 
 ### Components
 
@@ -109,3 +135,5 @@ Foobar
 ### Deploying Titanium
 
 Foobar
+
+TODO: runtime checking isTitanium
