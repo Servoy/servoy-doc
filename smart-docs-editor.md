@@ -1,9 +1,3 @@
----
-layout: default
-title: Smart-Doc Editor Guide
-nav_order: 3
-toc: true
----
 
 This guide shows how to include document management in your Servoy applications
 
